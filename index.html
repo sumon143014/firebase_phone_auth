@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="login-box d-flex justify-content-center">
+      <div class="card" style="width: 23rem;">
+        <h5 class="card-header">Login</h5>
+        <div class="card-body">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">+880</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Phone number" aria-label="Phone number"
+              id="phone-number">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="sign-in-button"
+                onclick="handleSubmit(this)">Get code</button>
+            </div>
+          </div>
+          <!-- Container to display the re-captcha check -->
+          <div id="enter-code" class="d-none">
+
+            <div class="input-group mb-3">
+              <input id="v-code" type="text" class="form-control" placeholder="Code" aria-label="Code"
+                aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button id="sign-in-button" class="btn btn-outline-secondary" type="button"
+                  onclick="confirmCode()">verify</button>
+              </div>
+            </div>
+          </div>
+          <p id="lins" class="d-none text-center">Log in Successful!</p>
+          <p id="linf" class="d-none text-center">Failed to login!</p>
+          <div id="recaptcha-container"></div>
+        </div>
+        <div id="resend-div" class="card-footer d-none"><button type="button" class="btn btn-success"
+            onclick="tryAgain()">Resend</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBJHmsYDV1oHf9ANgGtXlY1uqSrqFA68hg",
+      authDomain: "auth-test-e9e4a.firebaseapp.com",
+      databaseURL: "https://auth-test-e9e4a.firebaseio.com",
+      projectId: "auth-test-e9e4a",
+      storageBucket: "",
+      messagingSenderId: "496274162549",
+      appId: "1:496274162549:web:086154c9f3065ff1"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="auth-helper.js"></script>
+
+</body>
+
+</html>
